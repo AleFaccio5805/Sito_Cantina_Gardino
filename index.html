@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantina Vitivinicola Locale</title>
+    <!-- Bootstrap CSS (esterno) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .hero {
+            background-image: url('https://via.placeholder.com/1920x600?text=Vigneto+Locale'); /* Sostituisci con un'immagine reale */
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .wine-card {
+            margin-bottom: 20px;
+        }
+        .wine-details {
+            display: none; /* Nascosto di default */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Cantina Locale</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#storia">Storia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#vini">Elenco Vini</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contatti">Contatti</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Benvenuti nella Cantina Vitivinicola Locale</h1>
+            <p>Scopri la nostra tradizione e i nostri vini pregiati.</p>
+        </div>
+    </section>
+
+    <!-- Sezione Storia -->
+    <section id="storia" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">La Nostra Storia</h2>
+            <p class="lead">Fondata nel 1950, la nostra cantina è un simbolo della tradizione vitivinicola locale. Da generazioni, coltiviamo uve autoctone in queste colline fertili, producendo vini che raccontano il sapore della nostra terra. La passione per l'artigianalità e il rispetto per l'ambiente guidano ogni nostra bottiglia.</p>
+            <p>Visita i nostri vigneti e partecipa alle degustazioni guidate per vivere l'esperienza completa.</p>
+        </div>
+    </section>
+
+    <!-- Sezione Elenco Vini -->
+    <section id="vini" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Elenco Vini</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card wine-card">
+                        <img src="https://via.placeholder.com/300x200?text=Vino+Rosso" class="card-img-top" alt="Vino Rosso">
+                        <div class="card-body">
+                            <h5 class="card-title">Vino Rosso Classico</h5>
+                            <p class="card-text">Un rosso corposo con note di frutta matura e spezie.</p>
+                            <button class="btn btn-primary toggle-details" data-target="details1">Scopri di più</button>
+                            <div id="details1" class="wine-details mt-3">
+                                <p><strong>Annata:</strong> 2020</p>
+                                <p><strong>Gradazione:</strong> 13.5%</p>
+                                <p><strong>Prezzo:</strong> €15/bottiglia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card wine-card">
+                        <img src="https://via.placeholder.com/300x200?text=Vino+Bianco" class="card-img-top" alt="Vino Bianco">
+                        <div class="card-body">
+                            <h5 class="card-title">Vino Bianco Fresco</h5>
+                            <p class="card-text">Leggero e aromatico, perfetto per l'estate.</p>
+                            <button class="btn btn-primary toggle-details" data-target="details2">Scopri di più</button>
+                            <div id="details2" class="wine-details mt-3">
+                                <p><strong>Annata:</strong> 2021</p>
+                                <p><strong>Gradazione:</strong> 12%</p>
+                                <p><strong>Prezzo:</strong> €12/bottiglia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card wine-card">
+                        <img src="https://via.placeholder.com/300x200?text=Vino+Rosato" class="card-img-top" alt="Vino Rosato">
+                        <div class="card-body">
+                            <h5 class="card-title">Vino Rosato Elegante</h5>
+                            <p class="card-text">Un rosato secco con sentori floreali.</p>
+                            <button class="btn btn-primary toggle-details" data-target="details3">Scopri di più</button>
+                            <div id="details3" class="wine-details mt-3">
+                                <p><strong>Annata:</strong> 2022</p>
+                                <p><strong>Gradazione:</strong> 12.5%</p>
+                                <p><strong>Prezzo:</strong> €14/bottiglia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Contatti -->
+    <section id="contatti" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Contatti</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Informazioni</h4>
+                    <p><strong>Indirizzo:</strong> Via dei Vigneti, 123, Città Locale</p>
+                    <p><strong>Telefono:</strong> +39 012 3456789</p>
+                    <p><strong>Email:</strong> info@cantinalocale.it</p>
+                    <p><strong>Orari:</strong> Lun-Dom 9:00-18:00</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>Contattaci</h4>
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Messaggio</label>
+                            <textarea class="form-control" id="message" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Invia</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2023 Cantina Vitivinicola Locale. Tutti i diritti riservati.</p>
+    </footer>
+
+    <!-- Bootstrap JS (esterno) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript personalizzato -->
+    <script>
+        // Script per toggle dettagli vini
+        document.querySelectorAll('.toggle-details').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-target');
+                const details = document.getElementById(targetId);
+                if (details.style.display === 'none' || details.style.display === '') {
+                    details.style.display = 'block';
+                    button.textContent = 'Nascondi dettagli';
+                } else {
+                    details.style.display = 'none';
+                    button.textContent = 'Scopri di più';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
