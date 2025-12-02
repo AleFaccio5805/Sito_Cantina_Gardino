@@ -1,0 +1,27 @@
+<section id="cantina_wines" class="wines-section">
+  <div class="container">
+    <h2 class="section-title fade-in">I Nostri Vini</h2>
+    <p class="section-subtitle fade-in">Selezione Pregiata dalla Nostra Cantina</p>
+    <div class="wines-grid">
+      <div class="wine-card fade-in" *ngFor="let wine of wines">
+        <div class="wine-image-container">
+          <img [src]="wine.image" [alt]="wine.name" class="wine-image">
+          <div class="wine-overlay">
+            <button class="btn btn-primary">Dettagli</button>
+          </div>
+        </div>
+        <div class="wine-info">
+          <div class="wine-header">
+            <h3 class="wine-name">{{ wine.name }}</h3>
+            <span class="wine-price">{{ wine.price }}</span>
+          </div>
+          <div class="wine-meta">
+            <span class="wine-type">{{ wine.type }}</span>
+            <span class="wine-year">{{ wine.year }}</span>
+          </div>
+          <p class="wine-description">{{ wine.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

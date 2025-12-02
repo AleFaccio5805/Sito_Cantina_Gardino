@@ -1,0 +1,20 @@
+<nav id="cantina_navbar" [class.scrolled]="isScrolled">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <span class="logo-text">Cantina</span>
+      <span class="logo-subtext">dal 1920</span>
+    </div>
+    <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-menu" [class.active]="isMobileMenuOpen">
+      <li><a (click)="scrollToSection('cantina_hero')">Home</a></li>
+      <li><a (click)="scrollToSection('cantina_wines')">I Nostri Vini</a></li>
+      <li><a (click)="scrollToSection('cantina_story')">La Nostra Storia</a></li>
+      <li><a (click)="scrollToSection('cantina_gallery')">Galleria</a></li>
+      <li><a (click)="scrollToSection('cantina_contact')">Contatti</a></li>
+    </ul>
+  </div>
+</nav>

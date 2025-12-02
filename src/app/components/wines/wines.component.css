@@ -1,0 +1,117 @@
+.wines-section {
+  padding: 100px 0;
+  background-color: var(--color-neutral-light);
+}
+
+.wines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.wine-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wine-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(107, 31, 58, 0.15);
+}
+
+.wine-image-container {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  background-color: var(--color-cream);
+}
+
+.wine-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.wine-card:hover .wine-image {
+  transform: scale(1.1);
+}
+
+.wine-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(107, 31, 58, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.wine-card:hover .wine-overlay {
+  opacity: 1;
+}
+
+.wine-info {
+  padding: 1.5rem;
+}
+
+.wine-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.wine-name {
+  font-size: 1.5rem;
+  color: var(--color-bordeaux);
+  margin: 0;
+  flex: 1;
+}
+
+.wine-price {
+  font-size: 1.3rem;
+  color: var(--color-gold);
+  font-weight: 600;
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+.wine-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.wine-type,
+.wine-year {
+  font-size: 0.85rem;
+  color: var(--color-gold);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.wine-description {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .wines-section {
+    padding: 60px 0;
+  }
+  .wines-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

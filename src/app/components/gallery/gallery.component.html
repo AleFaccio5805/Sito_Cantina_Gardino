@@ -1,0 +1,14 @@
+<section id="cantina_gallery" class="gallery-section">
+  <div class="container">
+    <h2 class="section-title fade-in">Galleria Fotografica</h2>
+    <p class="section-subtitle fade-in">Immagini della Nostra Cantina e dei Vigneti</p>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in" *ngFor="let image of images">
+        <img [src]="image.url" [alt]="image.title" class="gallery-image">
+        <div class="gallery-overlay">
+          <h3 class="gallery-title">{{ image.title }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
