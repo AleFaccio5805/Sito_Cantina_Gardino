@@ -1,41 +1,52 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { HeroComponent } from './components/hero/hero.component';
-import { WinesComponent } from './components/wines/wines.component';
-import { StoryComponent } from './components/story/story.component';
-import { GalleryComponent } from './components/gallery/gallery.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { FooterComponent } from './components/footer/footer.component';
+
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { filter } from 'rxjs';
+import { SiteNavComponent } from './components/site-nav.component';
+import { SiteFooterComponent } from './components/site-footer.component';
+import { HeroEntranceComponent } from './components/hero-entrance.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'ga-root',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    NavbarComponent,
-    HeroComponent,
-    WinesComponent,
-    StoryComponent,
-    GalleryComponent,
-    ContactComponent,
-    FooterComponent
-  ],
+  imports: [RouterOutlet, SiteNavComponent, SiteFooterComponent, HeroEntranceComponent],
   template: `
-    <div id="cantina_app">
-      <app-navbar></app-navbar>
-      <app-hero></app-hero>
-      <app-wines></app-wines>
-      <app-story></app-story>
-      <app-gallery></app-gallery>
-      <app-contact></app-contact>
-      <app-footer></app-footer>
+    <div id="global_app_shell">
+      @if (showEntrance) {
+        <ga-hero-entrance (completed)="onEntranceDone()"></ga-hero-entrance>
+      }
+      <ga-site-nav></ga-site-nav>
+      <main><router-outlet></router-outlet></main>
+      <ga-site-footer></ga-site-footer>
     </div>
   `,
-  styles: []
+  styles: [
+    `
+      main { display: block; }
+    `
+  ]
 })
-export class AppComponent {
-  title = 'Cantina Vitivinicola';
+export class AppComponent implements OnInit {
+  showEntrance = false;
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
+    const reloaded = nav?.type === 'reload';
+    const seen = sessionStorage.getItem('ga_entrance_seen');
+    const onHome = window.location.pathname === '/' || window.location.pathname === '';
+    if (onHome && (reloaded || !seen)) {
+      this.showEntrance = true;
+    }
+
+    this.router.events.pipe(filter((e) => e instanceof NavigationEnd)).subscribe(() => {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    });
+  }
+
+  onEntranceDone(): void {
+    sessionStorage.setItem('ga_entrance_seen', '1');
+    this.showEntrance = false;
+  }
 }

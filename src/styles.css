@@ -1,108 +1,178 @@
+
 :root {
-  --color-bordeaux: #6B1F3A;
-  --color-bordeaux-dark: #4A1527;
-  --color-gold: #C5A572;
-  --color-gold-light: #D4B88A;
-  --color-cream: #F5F1E8;
-  --color-neutral-dark: #2C2623;
-  --color-neutral-light: #F8F6F3;
+  --vino: #3b1220;
+  --vino-vivo: #7a2333;
+  --rovere: #a9713f;
+  --rovere-scuro: #6b3f22;
+  --calce: #efe8da;
+  --calce-ombra: #d9cebb;
+  --verderame: #4f7a6b;
+  --inchiostro: #241c18;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* {
+* { box-sizing: border-box; }
+
+html, body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  background: var(--calce);
+  color: var(--inchiostro);
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  color: var(--color-neutral-dark);
-  line-height: 1.6;
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-weight: 200;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  line-height: 1.2;
+h1, h2, h3, h4 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 200;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  margin: 0;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+p { margin: 0 0 1.1rem; max-width: 62ch; }
+
+a { color: inherit; text-decoration: none; }
+
+.wrap { max-width: 2400px; margin: 0 auto; }
+
+.grid12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
 }
 
-.fade-in {
-  animation: fadeIn 0.8s ease-in;
+.col-main { grid-column: 1 / -1; padding: 0 1.4rem; }
+.col-a { grid-column: 1 / -1; padding: 0 1.4rem; }
+.col-b { grid-column: 1 / -1; padding: 0 1.4rem; }
+
+@media (min-width: 900px) {
+  .col-main { grid-column: 2 / 11; padding: 0; }
+  .col-a { grid-column: 2 / 8; padding: 0; }
+  .col-b { grid-column: 8 / 12; padding: 0; }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+section { position: relative; }
 
-.section-title {
-  font-size: 2.5rem;
-  color: var(--color-bordeaux);
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.section-subtitle {
-  font-size: 1.1rem;
-  color: var(--color-gold);
-  text-align: center;
-  margin-bottom: 3rem;
+.kicker {
+  font-family: 'Spline Sans Mono', monospace;
   font-weight: 300;
+  font-size: 1.125rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.kicker::before {
+  content: '';
+  width: 2.6rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.h-xl { font-size: clamp(3rem, 8vw, 7.4rem); }
+.h-lg { font-size: clamp(2.4rem, 5.4vw, 4.6rem); }
+.h-md { font-size: clamp(1.9rem, 3.2vw, 2.9rem); }
+
+.lead { font-size: clamp(1.2rem, 1.7vw, 1.55rem); line-height: 1.55; }
+
+.muted-number {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 200;
+  font-size: clamp(7rem, 16vw, 15rem);
+  line-height: 0.8;
+  opacity: 0.09;
+  pointer-events: none;
+  user-select: none;
+}
+
+.edge-label {
+  position: absolute;
+  writing-mode: vertical-rl;
+  font-family: 'Spline Sans Mono', monospace;
+  font-size: 1.125rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  opacity: 0.18;
+  pointer-events: none;
 }
 
 .btn {
-  display: inline-block;
-  padding: 14px 32px;
-  font-size: 1rem;
-  font-weight: 500;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.05rem 2rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 1.125rem;
+  letter-spacing: 0.06em;
+  background: transparent;
+  color: inherit;
   cursor: pointer;
-  border: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 300;
+  transition: transform 0.65s var(--ease), box-shadow 0.65s var(--ease), background 0.65s var(--ease), color 0.65s var(--ease);
+  box-shadow: 0 10px 26px -18px rgba(36, 28, 24, 0.9);
+}
+.btn:hover { transform: translateY(3px); box-shadow: 0 3px 10px -8px rgba(36, 28, 24, 0.9); }
+
+.btn-solid {
+  background: var(--vino);
+  color: var(--calce);
+  border-color: var(--vino);
+}
+.btn-solid:hover { background: var(--vino-vivo); border-color: var(--vino-vivo); }
+
+.card {
+  background: var(--calce);
+  border: 1px solid rgba(107, 63, 34, 0.22);
+  border-radius: 6px;
+  border-top-right-radius: 30px;
+  padding: 2rem 1.8rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.btn-primary {
-  background-color: var(--color-bordeaux);
-  color: white;
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.reveal.is-in { opacity: 1; transform: none; }
+
+.arc-breathe { animation: arcBreathe 9s var(--ease) infinite; transform-origin: center; }
+@keyframes arcBreathe {
+  0%, 100% { transform: scale(1); opacity: 0.55; }
+  50% { transform: scale(1.02); opacity: 0.85; }
 }
 
-.btn-primary:hover {
-  background-color: var(--color-bordeaux-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(107, 31, 58, 0.3);
+.drift { animation: drift 24s linear infinite; }
+@keyframes drift {
+  0% { transform: translate3d(-4%, 0, 0); }
+  50% { transform: translate3d(4%, -2%, 0); }
+  100% { transform: translate3d(-4%, 0, 0); }
 }
 
-.btn-outline {
-  background-color: transparent;
-  color: var(--color-bordeaux);
-  border: 2px solid var(--color-bordeaux);
+.draw-path {
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: drawPath 5.5s var(--ease) forwards;
 }
+@keyframes drawPath { to { stroke-dashoffset: 0; } }
 
-.btn-outline:hover {
-  background-color: var(--color-bordeaux);
-  color: white;
-}
+.mask-arc { clip-path: ellipse(72% 100% at 50% 100%); }
+.mask-doga { clip-path: polygon(0 4%, 100% 0, 100% 96%, 0 100%); }
 
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 2rem;
-  }
-  .section-subtitle {
-    font-size: 1rem;
-  }
-}
+::selection { background: var(--vino-vivo); color: var(--calce); }
+
+input, textarea, select, button { font-family: inherit; font-size: 1.125rem; }
